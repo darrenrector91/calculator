@@ -3,7 +3,8 @@ var app = express();
 var port = 5050;
 var bodyParser = require('body-parser');
 
-
+//Serve up static files
+app.use(express.static('server/public'));
 
 
 
