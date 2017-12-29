@@ -1,0 +1,57 @@
+body,
+html {
+    width: auto;
+    text-align: center;
+    background-color: #4F595D;
+    font-family: 'Karla', sans-serif;
+}
+
+.header {
+    font-size: 25px;
+    color: #E5921D;
+    background-color: #313842;
+    border: 2px solid darkgrey;
+    margin: 5px;
+}
+
+ul {
+    list-style: none;
+}
+
+input {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+button {
+    border: 2px solid #E1B325;
+}
+
+.buttons {
+    margin: 10px;
+}
+
+.fa-calculator {
+    font-size: 40px;
+    color: #E5921D;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.equals {
+    margin-top: 5px;
+}
+
+#outcome {
+    margin-top: 10px;
+    margin-right: 100px;
+    /* box-sizing: border-box;
+    width: 100px;
+    height: 50px;
+    padding: 2px;
+    border: 1px solid darkgrey; */
+}
+
+#btnClear {
+    margin-top: 15px;
+}

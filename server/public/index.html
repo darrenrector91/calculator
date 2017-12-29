@@ -6,35 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weekend Challenge #2</title>
-    <script src="vendors/jquery-3.2.1. min.js"></script>
+    <script src="vendors/jquery.min.js"></script>
     <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Weekend Challenge #2</h1>
+    <header class="header">
+
+        <h1>Weekend Challenge #2</h1>
+    </header>
     <form id="calculator">
-
-        First # to Calculate:
-        <input type="number" id="firstNumber">
-
-        <br> 
-        
-        Operation:
-        <button id="add" class="operation">+</button>
-        <button id="subtract" class="operation">-</button>
-        <button id="multiply" class="operation">*</button>
-        <button id="divide" class="operation">/</button>
-        
-        <br>
-        
-        Second # to Calculate:
-        <input type="number" id="secondNumber">
-
-        <br>
-        
-        <button type="submit">Submit</button>
+        <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
+        <div class="firstNum">
+            <input type="number" id="firstNumber" placeholder="First Input">
+        </div>
+        <div class="buttons">
+            <button id="btnAdd" class="add">Add</button>
+            <button id="btnSubtract" class="subtract">Subtract</button>
+            <button id="btnMultiply" class="multiply">Multiply</button>
+            <button id="btnDivide" class="divide">Divide</button>
+        </div>
+        <div class="secondNum">
+            <input type="number" id="secondNumber" placeholder="Second Input">
+        </div>
+        <div class="equals">
+            <button id="btnEquals">Equals</button>
+        </div>
+        <div id="outcome" class="outcome">Outcome:</div>
     </form>
+    <button id="btnClear">Clear Input</button>
+    <div class="historyInput">
+        <ul id="history"></ul>
+    </div>
 </body>
 
 </html>
