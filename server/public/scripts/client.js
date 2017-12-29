@@ -56,14 +56,15 @@ function inputs(event) {
     });
 } //end input
 
+//result display
 function display(result) {
     for (let i = 0; i < result.length; i++) {
         console.log(result[i]);
-        
         $('#outcome').text(result[i]);
     }
 } // end display
 
+//get calculator results/answer
 function outcome() {
     $.ajax({
         method: 'GET',
@@ -85,6 +86,7 @@ function show(history) {
     return list;
 } // end show
 
+//get history
 function history() {
     $.ajax({
         method: 'GET',
@@ -94,8 +96,9 @@ function history() {
             show(response);
         }
     });
-}
+}//end history
 
+//clear input and history
 function clrInput() {
     $.ajax({
         method: 'DELETE',
