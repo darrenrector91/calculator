@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // return calculations
 app.post('/calc', function(req, res) {
     cal.calculations(req.body.num1, req.body.num2, req.body.op);
-    history.history(req.body.num1, req.body.num2, req.body.op);
+    history.fillHistory(req.body.num1, req.body.num2, req.body.op);
     res.sendStatus(201);
 });
 
@@ -28,9 +28,9 @@ app.get('/history', function (req, res) {
 });
 
 // delete/clear
-app.delete('/clearAll', function (req, res) {
-    cal.delete();
-    history.delete();
+app.delete('/clrInput', function (req, res) {
+    cal.clrInput();
+    history.clrInput();
     res.send('inputCleared');
 })
 
