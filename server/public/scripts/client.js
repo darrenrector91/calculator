@@ -10,9 +10,9 @@ class doMath {
     }
 } //end class
 
-$(document).ready(calculatorApp);
+$(document).ready(calcApp);
 
-function calculatorApp() {
+function calcApp() {
     history();
     // Event Listeners
     $('#btnAdd').on('click', function () {
@@ -27,21 +27,23 @@ function calculatorApp() {
     $('#btnDivide').on('click', function () {
         operator = 'Divide';
     });
-    $('#btnEquals').on('click', inputs);
     $('#btnClear').on('click', clrInput);
-} // end calculatorApp
+    $('#btnEquals').on('click', inputs);
+}//end calc
 
 //inputs
-function inputs() {
+function inputs(event) {
+    event.preventDefault();
     let firstNumber = $('#firstNumber').val();
     let secondNumber = $('#secondNumber').val();
 
     //Make object for inputs to pass to server
-    let calculatorObject = new Operation(firstNumber, secondNumber, operator);
-
+    let calculatorObject = new doMath(firstNumber, secondNumber, operator);
+    console.log(firstNumber);
+    
     // Clear input
-    $('#firstNumber').val('');
-    $('#secondNumber').val('');
+    // $('#firstNumber').val('');
+    // $('#secondNumber').val('');
 
     $.ajax({
         method: 'POST',
