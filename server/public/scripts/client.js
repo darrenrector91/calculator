@@ -39,11 +39,11 @@ function inputs(event) {
 
     //Make object for inputs to pass to server
     let calculatorObject = new doMath(firstNumber, secondNumber, operator);
-    console.log(firstNumber);
+    // console.log(firstNumber);
     
     // Clear input
-    // $('#firstNumber').val('');
-    // $('#secondNumber').val('');
+    $('#firstNumber').val('');
+    $('#secondNumber').val('');
 
     $.ajax({
         method: 'POST',
@@ -60,14 +60,14 @@ function display(result) {
     for (let i = 0; i < result.length; i++) {
         console.log(result[i]);
         
-        $('#results').text(result[i]);
+        $('#answer').text(result[i]);
     }
 } // end display
 
 function outcome() {
     $.ajax({
         method: 'GET',
-        url: '/calculator',
+        url: '/calc',
         success: function (response) {
             display(response);
         }
@@ -103,7 +103,7 @@ function clrInput() {
         success: function (response) {
             console.log('response', response);
             $('#history').empty();
-            $('#outcome').html('0');
+            $('#outcome').html('');
         }
     });
 }
