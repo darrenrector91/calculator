@@ -8,11 +8,14 @@ let calculations = function (num1, num2, operation) {
     let outcome = 0;
     if (operation == 'Add') {
         outcome = num1+num2;
-    } else if (operation == 'Subtract') {
+    } 
+    if (operation == 'Subtract') {
         outcome = num1-num2;
-    } else if (operation == 'Multiply') {
+    }
+    if (operation == 'Multiply') {
         outcome = num1*num2;
-    } else {
+    }
+    if (operation == 'Divide') {
         outcome = num1/num2;
     }
     result.push(outcome);
@@ -30,8 +33,8 @@ let clrInput = function () {
 
 // export mods
 module.exports = {
-    returnOutcome: returnOutcome,
     calculations: calculations,
+    returnOutcome: returnOutcome,
     clrInput: clrInput
 };
 
