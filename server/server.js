@@ -13,18 +13,18 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // return calculations
-app.post('/calculations', function(req, res) {
+app.post('/calc', function(req, res) {
     cal.calculations(req.body.num1, req.body.num2, req.body.op);
     history.history(req.body.num1, req.body.num2, req.body.op);
     res.sendStatus(201);
 });
 
-app.get('/history', function(req, res) {
-    res.send(history.completeHistory());
+app.get('/calc', function(req, res) {
+    res.send(calc.returnOutcome());
 });
 
-app.get('/calc', function(req, res) {
-    res.send(calc.calc());
+app.get('/history', function (req, res) {
+    res.send(history.completeHistory());
 });
 
 // delete/clear

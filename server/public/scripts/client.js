@@ -28,7 +28,7 @@ function calculatorApp() {
         operator = 'Divide';
     });
     $('#btnEquals').on('click', inputs);
-    $('#btnClear').on('click', clearInput);
+    $('#btnClear').on('click', clrInput);
 } // end calculatorApp
 
 //inputs
@@ -56,6 +56,8 @@ function inputs() {
 
 function display(result) {
     for (let i = 0; i < result.length; i++) {
+        console.log(result[i]);
+        
         $('#results').text(result[i]);
     }
 } // end display
@@ -86,7 +88,7 @@ function history() {
         method: 'GET',
         url: '/history',
         success: function (response) {
-            console.log('hostory response', response);
+            console.log('history response', response);
             show(response);
         }
     });
