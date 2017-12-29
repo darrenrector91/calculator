@@ -16,16 +16,16 @@ function calcApp() {
     history();
     // Event Listeners
     $('#btnAdd').on('click', function () {
-        operator = 'Add';
+        operation = 'Add';
     });
     $('#btnSubtract').on('click', function () {
-        operator = 'Subtract';
+        operation = 'Subtract';
     });
     $('#btnMultiply').on('click', function () {
-        operator = 'Multiply';
+        operation = 'Multiply';
     });
     $('#btnDivide').on('click', function () {
-        operator = 'Divide';
+        operation = 'Divide';
     });
     $('#btnClear').on('click', clrInput);
     $('#btnEquals').on('click', inputs);
@@ -60,7 +60,7 @@ function display(result) {
     for (let i = 0; i < result.length; i++) {
         console.log(result[i]);
         
-        $('#answer').text(result[i]);
+        $('#outcome').text(result[i]);
     }
 } // end display
 

@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 // Modules
-const cal = require('./modules/calc');
+const calc = require('./modules/calc');
 const history = require('./modules/history');
 // Port
 const port = 5050;
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // return calculations
 app.post('/calc', function(req, res) {
-    cal.calculations(req.body.num1, req.body.num2, req.body.op);
+    calc.calculations(req.body.num1, req.body.num2, req.body.op);
     history.fillHistory(req.body.num1, req.body.num2, req.body.op);
     res.sendStatus(201);
 });
@@ -29,7 +29,7 @@ app.get('/history', function (req, res) {
 
 // delete/clear
 app.delete('/clrInput', function (req, res) {
-    cal.clrInput();
+    calc.clrInput();
     history.clrInput();
     res.send('inputCleared');
 })
