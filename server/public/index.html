@@ -1,49 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weekend Challenge #2</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>server side calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="vendors/jquery.min.js"></script>
     <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 </head>
 
 <body>
-    <header class="header">
-        <div id="headerTitle">
-            <h1>Weekend Challenge # 3
-                <br>Calculator App</h1>
-            <h2></h2>
+    <div class="container">
+        <div class="title"> 
+            <div class="row">
+                <h1>Calculator</h1>
+            </div>
         </div>
-    </header>
-    <div class="calculator">
-        <i class="fa fa-calculator fa-5x" aria-hidden="true"></i>
-        <div class="firstNum">
-            <input type="number" id="firstNumber" placeholder="First Input">
+        <div class="row">
+            <input type="number" id="firstNumber" placeholder="First Number">
         </div>
-        <div class="buttons">
-            <button id="btnAdd" class="add">Add</button>
-            <button id="btnSubtract" class="subtract">Subtract</button>
-            <button id="btnMultiply" class="multiply">Multiply</button>
-            <button id="btnDivide" class="divide">Divide</button>
+        <div class="row">
+            <select id="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">÷</option>
+            </select>
         </div>
-        <div class="secondNum">
-            <input type="number" id="secondNumber" placeholder="Second Input">
+        <div class="row">
+            <input type="number" id="secondNumber" placeholder="Second Number">
         </div>
-        <div class="equals">
-            <button id="btnEquals">Equals</button>
+        <div class="row">
+            <button id="submitButton">Submit</button>
         </div>
-        Answer:
-        <div id="outcome" class="outcome"></div>
-    </div>
-    <button id="btnClear">Clear Input</button>
-    <div class="historyInput">
-        <ul id="history"></ul>
+        <div class="row">
+            <div id="history"></div>
+        </div>
     </div>
 </body>
 

@@ -1,116 +1,45 @@
-console.log('client.js loaded');
+console.log('client is working!');
 
-let operator = '';
+$(document).ready(onReady);
 
-class doMath {
-    constructor(num1, num2, operation) {
-        this.num1 = num1,
-            this.num2 = num2,
-            this.operation = operation
-    }
-} //end class
+function onReady() {
+    console.log('jQuery is loaded!');
+    getHistory();
+    $('#submitButton').on('click', submitClick);
+}
 
-$(document).ready(calcApp);
-
-function calcApp() {
-    history();
-    // Event Listeners
-    $('#btnAdd').on('click', function () {
-        operation = 'Add';
-    });
-    $('#btnSubtract').on('click', function () {
-        operation = 'Subtract';
-    });
-    $('#btnMultiply').on('click', function () {
-        operation = 'Multiply';
-    });
-    $('#btnDivide').on('click', function () {
-        operation = 'Divide';
-    });
-    $('#btnClear').on('click', clrInput);
-    $('#btnEquals').on('click', inputs);
-}//end calc
-
-//inputs
-function inputs(event) {
-    event.preventDefault();
-
-    let firstNumber = $('#firstNumber').val();
-    console.log($('#firstNumber').val());
-
-    let secondNumber = $('#secondNumber').val();
-    console.log($('#secondNumber').val());
-
-    //Make object for inputs to pass to server
-    let calculatorObject = new doMath(firstNumber, secondNumber, operator);
-    // console.log(firstNumber);
-
-    // Clear input
-    $('#firstNumber').val('').focus();
-    $('#secondNumber').val('');
+function submitClick() {
+    var entry = {
+        firstNumber: $('#firstNumber').val(),
+        secondNumber: $('#secondNumber').val(),
+        operation: $('#operation').val()
+    };
 
     $.ajax({
         method: 'POST',
-        url: '/calc',
-        data: calculatorObject,
+        url: '/math',
+        data: entry,
         success: function (response) {
-            history();
-            outcome();
-        }
-    });
-} //end input
-
-//result display
-function display(result) {
-    for (let i = 0; i < result.length; i++) {
-        console.log(result[i]);
-        $('#outcome').text(result[i]);
-    }
-} // end display
-
-//get calculator results/answer
-function outcome() {
-    $.ajax({
-        method: 'GET',
-        url: '/calc',
-        success: function (response) {
-            display(response);
-        }
-    });
-} // end outcome
-
-function show(history) {
-    // Append DOM
-    for (let i = 0; i < history.length; i++) {
-        var $historyList = $('<li>');
-        $historyList.append(history[i]);
-        console.log(history[i]);
-    }
-    var list = $('#history').append($historyList);
-    return list;
-} // end show
-
-//get history
-function history() {
-    $.ajax({
-        method: 'GET',
-        url: '/history',
-        success: function (response) {
-            console.log('history response', response);
-            show(response);
-        }
-    });
-}//end history
-
-//clear input and history
-function clrInput() {
-    $.ajax({
-        method: 'DELETE',
-        url: '/clrInput',
-        success: function (response) {
-            console.log('response', response);
-            $('#history').empty();
-            $('#outcome').html('');
+            console.log('POST response:', response);
+            $('#firstNumber').val('');
+            $('#secondNumber').val('');
+            getHistory();
         }
     });
 }
+
+function getHistory() {
+    $.ajax({
+        method: 'GET',
+        url: '/math',
+        success: successCallback
+    });
+}
+
+function successCallback(response) {
+    console.log('GET response:', response);
+    $('#history').empty();
+    for (var i = 0; i < response.length; i++) {
+        $('#history').prepend('<p>' + response[i].firstNumber + ' ' + response[i].operator + ' ' + response[i].secondNumber + ' = ' + response[i].result + '</p>');
+    }
+};
