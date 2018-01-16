@@ -6,11 +6,11 @@ let fillHistory = function (num1, num2, operation) {
     let operator = ' ';
     if (operation == "Add") {
         operator = '+'
-    } else if (operation == "Subtract") {
+    }if (operation == "Subtract") {
         operator = '-'
-    } else if (operation == "Multiply") {
+    }if (operation == "Multiply") {
         operator = '*'
-    } else {
+    }if (operation == "Divide"){
         operator = '/'
     }
     historyArray.push(num1 + ' ' + operator + ' ' + num2);

@@ -5,10 +5,10 @@ let result = [];
 let calculations = function (num1, num2, operation) {
     num1 = Number(num1);
     num2 = Number(num2);
-    let outcome = 0;
+    let outcome = "";
     if (operation == 'Add') {
         outcome = num1+num2;
-    } 
+    }    
     if (operation == 'Subtract') {
         outcome = num1-num2;
     }
@@ -19,6 +19,8 @@ let calculations = function (num1, num2, operation) {
         outcome = num1/num2;
     }
     result.push(outcome);
+    console.log(outcome);
+    
 }//end operations
 
 // get operation outcome/result
@@ -37,4 +39,3 @@ module.exports = {
     returnOutcome: returnOutcome,
     clrInput: clrInput
 };
-

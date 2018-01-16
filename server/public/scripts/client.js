@@ -34,15 +34,19 @@ function calcApp() {
 //inputs
 function inputs(event) {
     event.preventDefault();
+
     let firstNumber = $('#firstNumber').val();
+    console.log($('#firstNumber').val());
+
     let secondNumber = $('#secondNumber').val();
+    console.log($('#secondNumber').val());
 
     //Make object for inputs to pass to server
     let calculatorObject = new doMath(firstNumber, secondNumber, operator);
     // console.log(firstNumber);
-    
+
     // Clear input
-    $('#firstNumber').val('');
+    $('#firstNumber').val('').focus();
     $('#secondNumber').val('');
 
     $.ajax({

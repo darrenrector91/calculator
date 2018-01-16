@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const calc = require('./modules/calc');
 const history = require('./modules/history');
 // Port
-const port = 5050;
+const port = 5000;
 
 //Serve up static files
 app.use(express.static('server/public'));
